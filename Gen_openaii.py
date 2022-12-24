@@ -8,8 +8,7 @@ openai.api_key = OPENAI_API_KEY
 print()
 print()
 print("Welcome to the OpenAI Image Generator!")
-print()
-print()
+
 
 keep_on = 'y'
 while keep_on == 'y':
