@@ -15,6 +15,44 @@ print()
 print("Welcome to the OpenAI Image Generator!")
 
 
+
+
+colors = ["grey", "white", "black", "orange", "calico", "tabby"]
+animals = [ 
+           ##"Abyssinian cat", "American shorthair cat", 
+           "balinese cat","burmese cat", "himalayan cat"
+           "maine coon cat","manx cat",  "singapurna cat", "snowshoe cat"
+           ]
+poses = ["facing camera"
+         ##, "looking left", "looking right"
+         ]
+mouths = [
+    "mouth closed", "mouth open", 
+    "lizard in mouth", "rat in mouth"
+     "mouse in mouth", "bird in mouth"
+    ]
+
+for color in colors:
+    for animal in animals:
+        for pose in poses:
+            for mouth in mouths:
+                n = 10
+                prompt = f"{color} {animal} {pose} {mouth}"
+                folder_path = '/Volumes/Elements/GitHub/cats_with_birds/For_Training/gen_ai/'
+                image_prefix = str(prompt.replace(" ", "_"))
+    ##image_count = 0
+                lynxie = openai.Image.create(
+                prompt= image_prefix, n=n, size="1024x1024")
+                print("the prompt this time is " , prompt, "    ")
+                for i in range(n):
+                    image_url = lynxie['data'][i]['url']
+                 ##webby = webbrowser.open_new(image_url)
+                    ulr.urlretrieve(lynxie['data'][i]['url'], folder_path + image_prefix + str(i) + '.jpg')
+
+
+print("competed")
+
+
 keep_on = 'y'
 while keep_on == 'y':
     print()
@@ -40,7 +78,3 @@ while keep_on == 'y':
 print()
 print()
 print("Thank you for using the OpenAI Image Generator!")
-
-
-
-
