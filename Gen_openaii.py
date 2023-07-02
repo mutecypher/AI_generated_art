@@ -15,21 +15,28 @@ print()
 print("Welcome to the OpenAI Image Generator!")
 
 
-
-
-colors = ["grey", "white", "black", "orange", "calico", "tabby"]
+colors = [
+    ##"brown", 
+    ##"white", 
+    "tuxedo",
+    "black", 
+    "striped", 
+    "orange", 
+    "black"
+    ]
 animals = [ 
-           ##"Abyssinian cat", "American shorthair cat", 
-           "balinese cat","burmese cat", "himalayan cat"
-           "maine coon cat","manx cat",  "singapurna cat", "snowshoe cat"
+           "cat",
+           "kitten",
+            "kitty"
            ]
-poses = ["facing camera"
-         ##, "looking left", "looking right"
+poses = ["facing camera", "walking to camera",
+          "looking left", "looking right"
          ]
-mouths = [
-    "mouth closed", "mouth open", 
-    "lizard in mouth", "rat in mouth"
-     "mouse in mouth", "bird in mouth"
+mouths =[
+    "mouth closed",  
+   ## "lizard in mouth", ##"rat in mouth",
+    ## "mouse in mouth", "bird in mouth"
+    "mouth open"
     ]
 
 for color in colors:
@@ -41,8 +48,7 @@ for color in colors:
                 folder_path = '/Volumes/Elements/GitHub/cats_with_birds/For_Training/gen_ai/'
                 image_prefix = str(prompt.replace(" ", "_"))
     ##image_count = 0
-                lynxie = openai.Image.create(
-                prompt= image_prefix, n=n, size="1024x1024")
+                lynxie = openai.Image.create(prompt= image_prefix, n=n, size="256x256")
                 print("the prompt this time is " , prompt, "    ")
                 for i in range(n):
                     image_url = lynxie['data'][i]['url']
@@ -51,6 +57,8 @@ for color in colors:
 
 
 print("competed")
+
+
 
 
 keep_on = 'y'
@@ -63,7 +71,7 @@ while keep_on == 'y':
     image_prefix = str(prompty.replace(" ", "_"))
     ##image_count = 0
     lynxie = openai.Image.create(
-        prompt=prompty, n=n, size="1024x1024")
+        prompt=prompty, n=n, size="256x256")
     for i in range(n):
         image_url = lynxie['data'][i]['url']
         ##webby = webbrowser.open_new(image_url)
