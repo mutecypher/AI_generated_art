@@ -18,16 +18,20 @@ print("Welcome to the OpenAI Image Generator!")
 colors = [
     ##"brown", 
     ##"white", 
-    "tuxedo",
-    "black", 
-    "striped", 
-    "orange", 
+    "grey",
+    "brown", 
+    ##"striped", 
+    ##"orange", 
     "black"
     ]
 animals = [ 
-           "cat",
-           "kitten",
-            "kitty"
+           "raccoon",
+           "squirrel",
+            "chipmunk",
+            "bear",
+            "linx",
+            "skunk",
+            "feral pig"
            ]
 poses = ["facing camera", "walking to camera",
           "looking left", "looking right"
@@ -45,7 +49,7 @@ for color in colors:
             for mouth in mouths:
                 n = 10
                 prompt = f"{color} {animal} {pose} {mouth}"
-                folder_path = '/Volumes/Elements/GitHub/cats_with_birds/For_Training/gen_ai/'
+                folder_path = '/Volumes/Elements/GitHub/cats_with_birds/For_Training/non_cat/'
                 image_prefix = str(prompt.replace(" ", "_"))
     ##image_count = 0
                 lynxie = openai.Image.create(prompt= image_prefix, n=n, size="256x256")
